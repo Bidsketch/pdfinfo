@@ -32,7 +32,17 @@ class Pdfinfo
 
     @pages = []
     info_hash.delete_if do |key, value|
-      @pages << Page.from_string(value) if key.match(/Page\s+\d+\ssize/)
+
+      if key.match(/Page\s+\d+\ssize/)
+
+        #append rotation value to page size line for ubuntu compatability
+        rotate_key = key.gsub('size', 'rot')
+        if info_hash.key?(rotate_key)
+          value = value + " (rotated " + info_hash[rotate_key] + " degrees)"
+        end
+
+        @pages << Page.from_string(value) 
+      end
     end
 
     encrypted_val = info_hash.delete('Encrypted')

@@ -130,6 +130,15 @@ RSpec.describe Pdfinfo do
         expect_command_will_run
         expect { Pdfinfo.new(mock_file_path) }.not_to raise_exception
       end
+
+      it 'parses alternate rotation correctly' do
+        expect_command_will_run
+
+        Pdfinfo.new(mock_file_path).pages.each_with_index do |page_info, i|
+          page = page_info.to_hash
+          expect(page[:rotation]).to eq(10).or eq(20).or eq(30)
+        end
+      end
     end
   end
 

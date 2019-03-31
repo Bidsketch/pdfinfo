@@ -17,7 +17,7 @@ usage of this gem assumes that you have xpdf installed (which gives us access to
 
 Add this line to your application's Gemfile:
 
-    gem 'pdfinfo', '~> 1.4.2'
+    gem 'pdfinfo', '~> 1.4.3'
 
 And then execute:
 

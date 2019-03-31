@@ -1,3 +1,5 @@
+#### v1.4.3
+* fix for always returning rotation as 0.0 in Ubuntu poppler-utils (returns correct rotation value now)
 #### v1.4.2
 * simplified fix for bug where page size line missing rotation information would raise an ArgumentError on Pdfinfo::Page creation
 #### v1.4.1
